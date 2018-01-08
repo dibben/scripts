@@ -1,0 +1,17 @@
+#
+# gvpr script
+#
+# Script to extract information (nodes and edges) from a dot graph
+#
+# Usage
+# gvpr -f graphinfo.gvpr  infile.dot
+#
+
+BEG_G {
+    int n = nNodes($G);
+    int e = nEdges($G);
+    printf("There are %d nodes and %d edges in %s\n", n, e, $G.name);
+}
+N {
+    printf("Node %s - indegree %d, outdegree %d, degree %d\n", $.label, $.indegree, $.outdegree, $.degree);
+}
